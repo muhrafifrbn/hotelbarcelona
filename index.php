@@ -39,7 +39,7 @@ $kamar = mysqli_query($koneksi,"SELECT * FROM kamar");
             <li><a href="#kamar">Kamar</a></li>
             <li><a href="#fasilitas">Fasilitas</a></li>
             <?php if(isset($_SESSION['tamu'])){ ?>
-            <li><a href="weblab/konfirmasi.php">Pesanan</a></li>
+            <li><a href="weblab/konfirmasi.php" style="border-left:1px solid black;">Pesanan</a></li>
             <?php } ?>
           </ul>
         </nav>
