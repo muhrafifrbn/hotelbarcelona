@@ -81,6 +81,7 @@ if(isset($_POST['registrasi'])){
       }
       
     </style>
+    <title>Registrasi</title>
       <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   </head>
   <body>

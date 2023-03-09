@@ -30,6 +30,7 @@ if(isset($_POST['login'])){
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Login</title>
     <style>
       body {
         height: 500px;

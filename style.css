@@ -18,6 +18,7 @@ header {
 .container {
   width: 90%;
   margin: auto;
+  /* border: 1px solid black; */
 }
 
 header a {
@@ -215,13 +216,11 @@ article.about {
   text-transform: capitalize;
   font-size: 35px;
   font-family: calibri;
-  color: #00aef0;
 }
 .about p {
   padding: 5px;
   font-size: 20px;
   text-align: center;
-  color: #242e5a;
 }
 
 /* ARTICLE KAMAR */
@@ -245,9 +244,9 @@ article#kamar h1 {
   gap: 15px;
 }
 .flex-kamar .box-kamar {
-  width: 360px;
+  width: 300px;
   height: 460px;
-  border: 2px solid #242e5a;
+  border: 3px solid #00aef0;
   border-radius: 5px;
 }
 /* .box-kamar .header {
@@ -268,7 +267,6 @@ article#kamar h1 {
   padding: 5px;
   text-align: center;
   /* border: 1px solid black; */
-  color: #191919;
 }
 
 .box-kamar .text li {
@@ -297,9 +295,9 @@ article#fasilitas h1 {
   gap: 15px;
 }
 .flex-fasilitas .box-fasilitas {
-  width: 360px;
-  height: 450px;
-  border: 2px solid #242e5a;
+  width: 300px;
+  /* height: 450px; */
+  border: 2px solid #00aef0;
   border-radius: 5px;
 }
 /* .box-kamar .header {
@@ -319,7 +317,6 @@ article#fasilitas h1 {
   font-size: 25px;
   padding: 5px;
   text-align: center;
-  color: #191919;
   /* border: 1px solid black; */
 }
 

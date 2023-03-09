@@ -29,6 +29,11 @@ if(isset($_POST['pesan_kamar'])){
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php if(isset($_SESSION['tamu'])){ ?>
+      <title>Tamu</title>
+     <?php }else{?> 
+      <title>Home</title>
+     <?php } ?> 
     <title>Home</title>
     <link rel="stylesheet" href="style.css" />
      <!-- ICON BOOSTRAPE -->
@@ -112,9 +117,13 @@ if(isset($_POST['pesan_kamar'])){
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <div class="form-group">
+                     <div class="form-group">
                         <label>Nama Pemesan</label>
                         <input required type="text" name="nama_pemesan" class="form-control" placeholder="Masukan Nama Pemesan" autocomplete="off">
+                      </div>
+                     <div class="form-group">
+                        <label>Nomor Ktp</label>
+                        <input required type="text" name="nomor_ktp" class="form-control" placeholder="Masukan Nama Pemesan" autocomplete="off">
                       </div>
                       <div class="form-group">
                         <label>Email Pemesan</label>
@@ -207,9 +216,7 @@ if(isset($_POST['pesan_kamar'])){
               </div>
               <div class="text">
                 <h2>Sauna</h2>
-                <ul>
-                 <li>ruangan dengan suhu panas dan kering yang digunakan untuk membantu tubuh mengeluarkan keringat dan membakar lebih banyak kalori.</li>
-                </ul>
+                
               </div>
             </div>
            <div class="box-fasilitas">
@@ -218,9 +225,7 @@ if(isset($_POST['pesan_kamar'])){
               </div>
               <div class="text">
                 <h2>Kolam Renang</h2>
-                <ul>
-                <li>Kolam renang ini dirancang untuk tamu dan beroperasi dari 6:00-21:00 setiap hari, dengan dikelilingi taman tropis yang indah.</li>
-                </ul>
+               
               </div>
             </div>
            <div class="box-fasilitas">
@@ -229,9 +234,7 @@ if(isset($_POST['pesan_kamar'])){
               </div>
               <div class="text">
               <h2>Area Terbuka</h2>
-                <ul>
-                <li>bersifat terbuka, tempat tumbuh tanaman, baik yang tumbuh tanaman secara alamiah maupun yang sengaja ditanam.</li>
-                </ul>
+                
               </div>
             </div>
            <div class="box-fasilitas">
@@ -240,9 +243,7 @@ if(isset($_POST['pesan_kamar'])){
               </div>
               <div class="text">
               <h2>Parkir Basement</h2>
-                <ul>
-                <li>Tempat parkir yang luas dan nyaman, lobby yang luas dan nyaman, check in/out cepat.</li>
-                </ul>
+               
               </div>
             </div>
            <div class="box-fasilitas">
@@ -251,9 +252,7 @@ if(isset($_POST['pesan_kamar'])){
               </div>
               <div class="text">
               <h2>Restaurant</h2>
-                <ul>
-                <li> Restoran kasual memiliki teras dan tempat makan di tepi pantai.  Jenis makanan yang beragam, serta pelayanan yang memuaskan.</li>
-                </ul>
+                
               </div>
             </div>
             <div class="box-fasilitas">
@@ -262,9 +261,7 @@ if(isset($_POST['pesan_kamar'])){
               </div>
               <div class="text">
               <h2>Pantai Pribadi</h2>
-                <ul>
-                <li>Pantai yang luas dan nyaman, menikmati keindahan alam pantai, melihat matahari terbit atau tenggelam.</li>
-                </ul>
+               
               </div>
             </div>
           </div> 
@@ -276,7 +273,7 @@ if(isset($_POST['pesan_kamar'])){
         <p>Social Media Account</p>
 
         <!--paragraph-->
-        <p>Marbella Anyer menawarkan akomodasi bintang 5 di Kareo dan menghadap ke pantai!</p>
+        <p>Hotel | 15315, Bakti Jaya, Kota Tangerang Selatan, Banten</p>
         <!--social-->
         <div class="social-icons">
           <a href="#"><i class="fab fa-whatsapp"></i></a>

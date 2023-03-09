@@ -194,9 +194,12 @@ if(isset($_POST['hapusdatakamar'])){
     $id = $_POST['id'];
     // mysqli_query($koneksi, "DELETE FROM kamar WHERE id_kamar = $id");
     $bukti_pesan = mysqli_query($koneksi,"SELECT * FROM pemesanan WHERE id_kamar = $id");
-    $data_bukti = mysqli_fetch_assoc($bukti_pesan);
-    $id_pesan = $data_bukti['id_pesanan'];
-    mysqli_query($koneksi,"DELETE FROM transaksi WHERE id_pesanan = $id_pesan");
+    if(mysqli_num_rows($bukti_pesan)>0){
+        $data_bukti = mysqli_fetch_assoc($bukti_pesan);
+        $id_pesan = $data_bukti['id_pesanan'];
+        mysqli_query($koneksi,"DELETE FROM transaksi WHERE id_pesanan = $id_pesan");
+    }
+  
     mysqli_query($koneksi, "DELETE FROM pemesanan WHERE id_kamar = $id");
     mysqli_query($koneksi, "DELETE FROM fasilitas WHERE id_kamar = $id");
     mysqli_query($koneksi, "DELETE FROM kamar WHERE id_kamar = $id");
@@ -245,6 +248,16 @@ function pesanKamar($data){
     $tanggal_cekOut = $data['cekout'];
     $jumlah_kamar = $data['jumlah_kamar'];
     $nama_lengkap = $data['nama_lengkap'];
+    $nomor_ktp =  $data['nomor_ktp'];
+    
+    $cek_ktp = mysqli_query($koneksi,"SELECT * FROM pemesanan WHERE no_ktp = $nomor_ktp");
+ if(mysqli_num_rows($cek_ktp) > 0){
+    echo "<script>
+    alert('Nomor Ktp sudah ada, Pemesanan GAGAL!');
+    document.location.href = 'index.php';
+    </script>";
+ }
+ else{
     $data_kamar = mysqli_query($koneksi,"SELECT * FROM kamar WHERE id_kamar = $id_kamar");
     $data_jumlah_kamar = mysqli_fetch_assoc($data_kamar)['jumlah_kamar'];
 
@@ -257,7 +270,7 @@ function pesanKamar($data){
             $status = "ready";
         }
         mysqli_query($koneksi,"INSERT INTO pemesanan VALUES 
-        ('','$nama_pemesan','$email_pemesan','$no_handphone','$nama_tamu','$tanggal_cekIn','$tanggal_cekOut','$jumlah_kamar','$id_kamar','1','$nama_lengkap')
+        ('','$nama_pemesan','$email_pemesan','$no_handphone','$nama_tamu','$tanggal_cekIn','$tanggal_cekOut','$jumlah_kamar','$id_kamar','1','$nama_lengkap','$nomor_ktp')
        ");
 
         mysqli_query($koneksi,"UPDATE kamar SET jumlah_kamar = '$hasil_jumlah_kamar', status = '$status'  WHERE id_kamar = $id_kamar");
@@ -283,6 +296,8 @@ function pesanKamar($data){
         </script>";
     }
    
+ }
+
 }
 
 
