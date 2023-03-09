@@ -1,3 +1,13 @@
+<?php
+
+require 'cek_registrasi.php';
+
+if(isset($_POST['registrasi'])){
+  $hasil = registrasi($_POST);
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -69,12 +79,14 @@
       h1 {
         text-align: center;
       }
+      
     </style>
+      <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   </head>
   <body>
     <div>
       <h1>REGISTRASI!</h1>
-      <form action="cek_registrasi.php" method="post">
+      <form action="" method="post">
         <label for="username">Username</label>
         <input required type="text" id="username" name="username" autocomplete="off" placeholder="Masukkan Username Anda.." />
         <label  for="namaLengkap">Nama Lengkap</label>

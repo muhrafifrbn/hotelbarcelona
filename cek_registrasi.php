@@ -1,13 +1,13 @@
 <?php
 require 'weblab/koneksi.php';
 
-if(isset($_POST['registrasi'])){
-    if(!empty($_POST['username'] || !empty($_POST['password']) )){
-        $username = $_POST['username'];
-        $namaLengkap = $_POST['namaLengkap'];
-        $password = mysqli_real_escape_string($koneksi,$_POST['password']) ;
-        $password2 = mysqli_real_escape_string($koneksi,$_POST['password2']) ;
-        $pengguna = $_POST['pengguna'];
+function registrasi($data){
+     global $koneksi;
+        $username = $data['username'];
+        $namaLengkap = $data['namaLengkap'];
+        $password = mysqli_real_escape_string($koneksi,$data['password']) ;
+        $password2 = mysqli_real_escape_string($koneksi,$data['password2']) ;
+        $pengguna = $data['pengguna'];
     
         $cek = mysqli_query($koneksi,"SELECT username FROM akun WHERE username = '$username'");
         if(mysqli_num_rows($cek) > 0){
@@ -37,15 +37,8 @@ if(isset($_POST['registrasi'])){
             exit; 
         }
     }
-    else{
-        echo "<script>
-        alert('Data Tidak Boleh Kosong!. Regitrasi GAGAL!');
-        document.location.href = 'registrasi.php';
-        </script>";
-        exit; 
-    }
-    
+   
 
-}
+
 
 ?>

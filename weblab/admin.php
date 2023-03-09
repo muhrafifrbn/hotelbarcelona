@@ -29,7 +29,7 @@ if(isset($_POST['konfirmasi'])){
 	    <!----css3---->
         <link rel="stylesheet" href="css/custom.css">
 		
-		
+		<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 		<!--google fonts -->
 	
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -281,7 +281,7 @@ if(isset($_POST['konfirmasi'])){
 								</div>
 								<div class="col-md-6">
 									<label for="jumlah_kamar" class="form-label">Jumlah Kamar</label>
-									<input required type="number" class="form-control" id="jumlah_kamar" name="jumlah_kamar">
+									<input required type="number" class="form-control" id="jumlah_kamar" name="jumlah_kamar" autocomplete="off">
 								</div>
 								<div class="col-md-6">
 								    <label style="display:block;" for="status" class="form-label">Status</label>
@@ -292,7 +292,7 @@ if(isset($_POST['konfirmasi'])){
 								</div>
 								<div class="col-4">
 									<label for="harga" class="form-label">Harga</label>
-									<input required type="text" class="form-control" id="harga" name="harga">
+									<input required type="text" class="form-control" id="harga" name="harga" autocomplete="off">
 								</div>
 								<div class="col-md-12">
 								<label for="foto" class="form-label">Foto</label>
@@ -339,7 +339,7 @@ if(isset($_POST['konfirmasi'])){
 								</div>
 								<div class="col-md-6">
 									<label for="namafasilitas" class="form-label">Nama Fasilitas</label>
-									<input required type="text" class="form-control" id="namafasilitas" name="namafasilitas">
+									<input required type="text" class="form-control" id="namafasilitas" name="namafasilitas" autocomplete="off">
 								</div>						
 								<div class="col-md-12">
 									<label for="exampleFormControlTextarea1" class="form-label">Keterangan Fasilitas</label>

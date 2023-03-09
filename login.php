@@ -7,7 +7,7 @@ if(isset($_SESSION['admin'])){
   header('location:weblab/admin.php');
 }
 else if(isset($_SESSION['tamu'])){
-  header('location:tamu.php');
+  header('location:index.php');
 }
 else if(isset($_SESSION['resepsionis'])){
   header('location:weblab/resepsionis.php');
@@ -108,6 +108,7 @@ if(isset($_POST['login'])){
         justify-content: space-between;
       }
     </style>
+      <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   </head>
   <body>
     <div>

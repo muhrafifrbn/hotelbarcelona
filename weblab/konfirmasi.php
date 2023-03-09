@@ -40,7 +40,7 @@ while($pesan = mysqli_fetch_assoc($data)){
 	    <!----css3---->
         <link rel="stylesheet" href="css/custom.css">
 		
-		
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 		<!--google fonts -->
 	
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,7 +104,7 @@ while($pesan = mysqli_fetch_assoc($data)){
 
             </div>
               <div class="xp-breadcrumbbar text-center">
-                <h4 class="page-title">Halaman Resepsionis</h4>  
+                <h4 class="page-title">Halaman Tamu</h4>  
                 <!-- <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Booster</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
@@ -194,7 +194,7 @@ while($pesan = mysqli_fetch_assoc($data)){
     <div  class="modal fade" tabindex="-5" id="bukti_pesan<?= $rsp['id_pesanan'] ?>" role="dialog">
     <?php 
          $id_pemesanan = $rsp['id_pesanan'];
-        $cek_transaksi = mysqli_query($koneksi,"SELECT * FROM trasaksi WHERE id_pesanan = '$id_pemesanan'");
+        $cek_transaksi = mysqli_query($koneksi,"SELECT * FROM transaksi WHERE id_pesanan = '$id_pemesanan'");
          if(mysqli_num_rows($cek_transaksi) > 0){
           $cek_foto = 2;
           $foto = mysqli_fetch_assoc($cek_transaksi)['foto'];

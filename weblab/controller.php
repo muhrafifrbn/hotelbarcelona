@@ -1,14 +1,14 @@
 <?php
 require 'koneksi.php';
 
-
+// DATA KAMAR
 $data = mysqli_query($koneksi,"SELECT * FROM kamar");
 $rows = [];
 while($row = mysqli_fetch_assoc($data)){
 	$rows[] = $row;
 }
 
-
+// DATA FASILITAS
 $data2 = mysqli_query($koneksi,"SELECT * FROM fasilitas");
 $rows2 = [];
 while($row = mysqli_fetch_assoc($data2)){
@@ -16,13 +16,9 @@ while($row = mysqli_fetch_assoc($data2)){
 }
 
 
-$data3 = mysqli_query($koneksi,"SELECT * FROM fasilitas_hotel");
-$rows3 = [];
-while($row = mysqli_fetch_assoc($data3)){
-	$rows3[] = $row;
-}
 
 
+// DATA PEMESANAN
 $data4 = mysqli_query($koneksi,"SELECT * FROM pemesanan");
 $rows4 = [];
 while($row = mysqli_fetch_assoc($data4)){
@@ -196,10 +192,15 @@ else{
 
 if(isset($_POST['hapusdatakamar'])){
     $id = $_POST['id'];
+    // mysqli_query($koneksi, "DELETE FROM kamar WHERE id_kamar = $id");
+    $bukti_pesan = mysqli_query($koneksi,"SELECT * FROM pemesanan WHERE id_kamar = $id");
+    $data_bukti = mysqli_fetch_assoc($bukti_pesan);
+    $id_pesan = $data_bukti['id_pesanan'];
+    mysqli_query($koneksi,"DELETE FROM transaksi WHERE id_pesanan = $id_pesan");
+    mysqli_query($koneksi, "DELETE FROM pemesanan WHERE id_kamar = $id");
+    mysqli_query($koneksi, "DELETE FROM fasilitas WHERE id_kamar = $id");
     mysqli_query($koneksi, "DELETE FROM kamar WHERE id_kamar = $id");
     if(mysqli_affected_rows($koneksi) > 0){
-        mysqli_query($koneksi, "DELETE FROM fasilitas WHERE id_kamar = $id");
-        mysqli_query($koneksi, "DELETE FROM pemesanan WHERE id_kamar = $id");
         echo "<script>
         alert('Data Berhasil Dihapus!');
         document.location.href = 'admin.php';
@@ -311,7 +312,7 @@ function konfirmasi_pesanan($data){
         </script>";
      }
      else{
-        $tambah = mysqli_query($koneksi, "INSERT INTO trasaksi VALUES
+        $tambah = mysqli_query($koneksi, "INSERT INTO transaksi VALUES
         ('','$id_pemesan','$gambar')"
         );
      }

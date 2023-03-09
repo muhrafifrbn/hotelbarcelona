@@ -6,11 +6,20 @@ require  'weblab/koneksi.php';
 session_start();
 
 
+
+if(isset($_SESSION['admin'])){
+  header('location:weblab/admin.php');
+}
+else if(isset($_SESSION['resepsionis'])){
+  header('location:weblab/resepsionis.php');
+}
+  
+
 if(isset($_POST['pesan_kamar'])){
    $hasil = pesanKamar($_POST);
 }
 
-$kamar = mysqli_query($koneksi,"SELECT * FROM kamar");
+
 
 ?>
 
@@ -28,6 +37,7 @@ $kamar = mysqli_query($koneksi,"SELECT * FROM kamar");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   </head>
   <body id="home">
     <header>
@@ -104,19 +114,19 @@ $kamar = mysqli_query($koneksi,"SELECT * FROM kamar");
                 <div class="modal-body">
                 <div class="form-group">
                         <label>Nama Pemesan</label>
-                        <input required type="text" name="nama_pemesan" class="form-control" placeholder="Masukan Nama Pemesan">
+                        <input required type="text" name="nama_pemesan" class="form-control" placeholder="Masukan Nama Pemesan" autocomplete="off">
                       </div>
                       <div class="form-group">
                         <label>Email Pemesan</label>
-                        <input required type="text" name="email_pemesan" class="form-control" placeholder="Masukan Email Pemesan">
+                        <input required type="text" name="email_pemesan" class="form-control" placeholder="Masukan Email Pemesan" autocomplete="off">
                       </div>
                       <div class="form-group">
                         <label>No. Handphone</label>
-                        <input required type="text" name="hp_pemesan" class="form-control" placeholder="Masukan No. Handphone">
+                        <input required type="text" name="hp_pemesan" class="form-control" placeholder="Masukan No. Handphone" autocomplete="off">
                       </div>
                       <div class="form-group">
                         <label>Nama Tamu</label>
-                        <input required type="text" name="nama_tamu" class="form-control" placeholder="Masukan Nama Tamu">
+                        <input required type="text" name="nama_tamu" class="form-control" placeholder="Masukan Nama Tamu" autocomplete="off">
                       </div>
                       <div class="form-group">
                         <label>Pilih Kamar</label>
@@ -153,7 +163,7 @@ $kamar = mysqli_query($koneksi,"SELECT * FROM kamar");
         <article id="kamar">
           <h1>Kamar</h1>
           <div class="flex-kamar">
-          <?php while( $data = mysqli_fetch_assoc($kamar)) { 
+          <?php foreach($rows as $data) { 
                $id = $data['id_kamar'];
                $fasilitas = mysqli_query($koneksi,"SELECT * FROM fasilitas WHERE id_kamar = $id");
                if(mysqli_num_rows($fasilitas) > 0){
@@ -266,7 +276,7 @@ $kamar = mysqli_query($koneksi,"SELECT * FROM kamar");
         <p>Social Media Account</p>
 
         <!--paragraph-->
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores labore dolore vel!</p>
+        <p>Marbella Anyer menawarkan akomodasi bintang 5 di Kareo dan menghadap ke pantai!</p>
         <!--social-->
         <div class="social-icons">
           <a href="#"><i class="fab fa-whatsapp"></i></a>

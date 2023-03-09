@@ -38,7 +38,7 @@ if(isset($_POST['konfirmasi'])){
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 	
-	
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 	<!--google material icon-->
       <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
 
@@ -154,7 +154,7 @@ if(isset($_POST['konfirmasi'])){
                  $type_kamar = mysqli_fetch_assoc($result)['type_kamar'];
 
                  $id_pemesanan = $rsp['id_pesanan'];
-                 $cek_transaksi = mysqli_query($koneksi,"SELECT * FROM trasaksi WHERE id_pesanan = '$id_pemesanan'");
+                 $cek_transaksi = mysqli_query($koneksi,"SELECT * FROM transaksi WHERE id_pesanan = '$id_pemesanan'");
                  if(mysqli_num_rows($cek_transaksi) > 0){
                   $foto = mysqli_fetch_assoc($cek_transaksi)['foto'];
                   $cek_foto = 2;
@@ -189,7 +189,7 @@ if(isset($_POST['konfirmasi'])){
                       <button type="button" name="konfirmasi" class="btn btn-sm btn-danger">Konfirmasi</button>
                     <?php }?>      
                </th>
-               <th><a href="#foto_pesan<?= $rsp['id_pesanan'] ?>" class="btn btn-primary" data-toggle="modal" >Bukti Pesan</a></th>
+               <th><a href="#foto_pesan<?= $rsp['id_pesanan'] ?>" class="btn btn-primary" data-toggle="modal" >Bukti</a></th>
               </tr>
             <?php  $i++; } ?>
         </tbody>
@@ -206,7 +206,7 @@ if(isset($_POST['konfirmasi'])){
     <div  class="modal fade" tabindex="-5" id="foto_pesan<?= $rsp['id_pesanan'] ?>" role="dialog">
     <?php 
          $id_pemesanan = $rsp['id_pesanan'];
-         $cek_transaksi = mysqli_query($koneksi,"SELECT * FROM trasaksi WHERE id_pesanan = '$id_pemesanan'");
+         $cek_transaksi = mysqli_query($koneksi,"SELECT * FROM transaksi WHERE id_pesanan = '$id_pemesanan'");
         if(mysqli_num_rows($cek_transaksi) > 0){
           $foto = mysqli_fetch_assoc($cek_transaksi)['foto'];
           $cek_foto = 2;
