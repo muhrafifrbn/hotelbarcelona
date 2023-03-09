@@ -215,11 +215,13 @@ article.about {
   text-transform: capitalize;
   font-size: 35px;
   font-family: calibri;
+  color: #00aef0;
 }
 .about p {
   padding: 5px;
   font-size: 20px;
   text-align: center;
+  color: #242e5a;
 }
 
 /* ARTICLE KAMAR */
@@ -233,6 +235,7 @@ article#kamar h1 {
   text-transform: capitalize;
   font-size: 35px;
   font-family: calibri;
+  color: #00aef0;
 }
 #kamar .flex-kamar {
   display: flex;
@@ -244,7 +247,7 @@ article#kamar h1 {
 .flex-kamar .box-kamar {
   width: 360px;
   height: 460px;
-  border: 1px solid black;
+  border: 2px solid #242e5a;
   border-radius: 5px;
 }
 /* .box-kamar .header {
@@ -265,6 +268,7 @@ article#kamar h1 {
   padding: 5px;
   text-align: center;
   /* border: 1px solid black; */
+  color: #191919;
 }
 
 .box-kamar .text li {
@@ -283,6 +287,7 @@ article#fasilitas h1 {
   text-transform: capitalize;
   font-size: 35px;
   font-family: calibri;
+  color: #00aef0;
 }
 #fasilitas .flex-fasilitas {
   display: flex;
@@ -294,7 +299,7 @@ article#fasilitas h1 {
 .flex-fasilitas .box-fasilitas {
   width: 360px;
   height: 450px;
-  border: 1px solid black;
+  border: 2px solid #242e5a;
   border-radius: 5px;
 }
 /* .box-kamar .header {
@@ -314,6 +319,7 @@ article#fasilitas h1 {
   font-size: 25px;
   padding: 5px;
   text-align: center;
+  color: #191919;
   /* border: 1px solid black; */
 }
 

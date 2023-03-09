@@ -40,7 +40,7 @@ while($pesan = mysqli_fetch_assoc($data)){
 	    <!----css3---->
         <link rel="stylesheet" href="css/custom.css">
 		
-        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
 		<!--google fonts -->
 	
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
