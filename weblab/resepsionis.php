@@ -183,7 +183,7 @@ if(isset($_POST['konfirmasi'])){
                          <form action="" method="POST">
                             <input type="hidden" name="id_pesanan" value="<?php echo $rsp['id_pesanan']; ?>">
                             <input type="hidden" name="status" value="2">
-                            <button type="submit" name="konfirmasi" class="btn btn-sm btn-primary">Konfirmasi</button>
+                            <button type="submit" name="konfirmasi" class="btn btn-sm btn-primary" onclick="return confirm('Anda Ingin Konfirmasi?');" >Konfirmasi</button>
                           </form>
                     <?php } else{ ?>  
                       <button type="button" name="konfirmasi" class="btn btn-sm btn-danger">Konfirmasi</button>
